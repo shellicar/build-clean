@@ -1,4 +1,4 @@
-import { type UnpluginFactory, createUnplugin } from 'unplugin';
+import { type UnpluginFactory, type UnpluginOptions, createUnplugin } from 'unplugin';
 import { cleanUnusedFiles } from './cleanUnusedFiles';
 import { createLogger } from './createLogger';
 import { defaults } from './defaults';
@@ -13,9 +13,8 @@ const pluginFactory: UnpluginFactory<Options | undefined> = (initialOptions: Opt
   const logger = createLogger(options);
 
   return {
-    name: 'unplugin-build-cleaner',
+    name: '@shellicar/build-clean',
     enforce: 'post',
-
     esbuild: {
       setup(build) {
         build.initialOptions.metafile = true;
@@ -39,7 +38,7 @@ const pluginFactory: UnpluginFactory<Options | undefined> = (initialOptions: Opt
         });
       },
     },
-  };
+  } satisfies UnpluginOptions;
 };
 
 export const plugin = createUnplugin(pluginFactory);
