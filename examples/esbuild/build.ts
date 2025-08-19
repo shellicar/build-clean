@@ -1,11 +1,8 @@
 import { context } from 'esbuild';
 import { argv } from 'node:process';
-// import { globSync } from 'glob';
 import cleanPlugin from '@shellicar/build-clean/esbuild';
 
 const watch = argv.some((x) => x === '--watch');
-
-// const entryPoints = globSync('./src/**/*.ts');
 
 const ctx = await context({
   entryPoints: ['src/main.ts'],

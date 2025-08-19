@@ -16,7 +16,7 @@ export default defineConfig((config) => ({
   format: ['esm'],
   outDir: 'dist',
   esbuildPlugins: [cleanPlugin({
-    dry: false,
+    destructive: true,
     verbose: true,
     debug: true,
   })],

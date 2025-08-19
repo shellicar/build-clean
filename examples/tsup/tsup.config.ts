@@ -14,7 +14,7 @@ const commonOptions = {
   tsconfig: 'tsconfig.json',
   target: 'node22',
    esbuildPlugins: [cleanPlugin({
-    dry: false,
+    destructive: true,
     verbose: true,
     debug: true,
   })],

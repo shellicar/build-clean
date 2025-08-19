@@ -36,7 +36,7 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     }
 
     if (filesToDelete.length > 0) {
-      const dryRunSuffix = options.dry ? ' (dry run)' : '';
+      const dryRunSuffix = options.destructive ? '' : ' (dry run)';
       logger.warn(`Files marked for deletion: ${filesToDelete.length}${dryRunSuffix}`);
     } else {
       logger.info('No files marked for deletion');
@@ -46,7 +46,7 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     for (const file of filesToDelete) {
       const relativePath = relative(process.cwd(), file);
 
-      if (!options.dry) {
+      if (options.destructive) {
         await unlink(file);
       }
 
@@ -56,6 +56,8 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
 
     if (deletedCount === 0) {
       logger.info('No unused files found');
+    } else if (!options.destructive) {
+      logger.info(`Set destructive: true to actually delete the ${deletedCount} unused file(s)`);
     }
   } catch (error) {
     logger.error('Error during cleanup:', error);

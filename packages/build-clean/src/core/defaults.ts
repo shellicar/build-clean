@@ -3,5 +3,5 @@ import type { Options } from './types';
 export const defaults = {
   debug: false,
   verbose: false,
-  dry: false,
+  destructive: false,
 } satisfies Options;

@@ -1,7 +1,7 @@
 export interface Options {
   debug?: boolean;
   verbose?: boolean;
-  dry?: boolean;
+  destructive?: boolean;
 }
 
 export type ILogger = {

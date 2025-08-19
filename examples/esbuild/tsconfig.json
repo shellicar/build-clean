@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "build.ts"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "moduleResolution": "bundler",

@@ -3,7 +3,7 @@
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "module": "es2022",
     "target": "es2024",
     "moduleResolution": "bundler",
@@ -26,6 +26,6 @@
     "allowUnusedLabels": false,
     "allowUnreachableCode": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "tsup.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
