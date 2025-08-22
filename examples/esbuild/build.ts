@@ -1,6 +1,6 @@
-import { context } from 'esbuild';
 import { argv } from 'node:process';
 import cleanPlugin from '@shellicar/build-clean/esbuild';
+import { context } from 'esbuild';
 
 const watch = argv.some((x) => x === '--watch');
 
@@ -25,8 +25,7 @@ if (watch) {
 } else {
   try {
     await ctx.rebuild();
-  }
-  finally {
+  } finally {
     ctx.dispose();
   }
 }

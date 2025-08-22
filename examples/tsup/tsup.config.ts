@@ -1,5 +1,5 @@
-import { defineConfig, type Options } from 'tsup';
 import cleanPlugin from '@shellicar/build-clean/esbuild';
+import { type Options, defineConfig } from 'tsup';
 
 const commonOptions = {
   entry: ['src/main.ts', 'src/index.ts'],
@@ -13,11 +13,13 @@ const commonOptions = {
   bundle: true,
   tsconfig: 'tsconfig.json',
   target: 'node22',
-   esbuildPlugins: [cleanPlugin({
-    destructive: true,
-    verbose: true,
-    debug: true,
-  })],
+  esbuildPlugins: [
+    cleanPlugin({
+      destructive: true,
+      verbose: true,
+      debug: true,
+    }),
+  ],
 } satisfies Options;
 
 /**
@@ -25,12 +27,15 @@ const commonOptions = {
  * When targeting multiple formats, we need to define separate configurations for each format.
  * The separate outdir ensures that the output files for each format do not conflict.
  */
-export default defineConfig((config) => ([{
-  ...commonOptions,
-  format: 'esm',
-  outDir: 'dist/esm',
-}, {
-  ...commonOptions,
-  format: 'cjs',
-  outDir: 'dist/cjs',
-}]));
+export default defineConfig((config) => [
+  {
+    ...commonOptions,
+    format: 'esm',
+    outDir: 'dist/esm',
+  },
+  {
+    ...commonOptions,
+    format: 'cjs',
+    outDir: 'dist/cjs',
+  },
+]);

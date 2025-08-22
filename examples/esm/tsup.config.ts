@@ -1,5 +1,5 @@
-import { defineConfig } from 'tsup';
 import cleanPlugin from '@shellicar/build-clean/esbuild';
+import { defineConfig } from 'tsup';
 
 export default defineConfig((config) => ({
   entry: ['src/main.ts'],
@@ -15,9 +15,11 @@ export default defineConfig((config) => ({
   target: 'node22',
   format: ['esm'],
   outDir: 'dist',
-  esbuildPlugins: [cleanPlugin({
-    destructive: true,
-    verbose: true,
-    debug: true,
-  })],
+  esbuildPlugins: [
+    cleanPlugin({
+      destructive: true,
+      verbose: true,
+      debug: true,
+    }),
+  ],
 }));
