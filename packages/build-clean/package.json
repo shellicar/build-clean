@@ -21,18 +21,18 @@
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/esm/cjs/index.d.cts",
-        "default": "./dist/esm/cjs/index.cjs"
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
       },
       "import": {
-        "types": "./dist/esm/esm/index.d.ts",
-        "default": "./dist/esm/esm/index.js"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       }
     },
     "./astro": {
       "require": {
-        "types": "./dist/esm/cjs/astro.d.cts",
-        "default": "./dist/esm/cjs/astro.cjs"
+        "types": "./dist/cjs/astro.d.cts",
+        "default": "./dist/cjs/astro.cjs"
       },
       "import": {
         "types": "./dist/esm/astro.d.ts",
@@ -41,8 +41,8 @@
     },
     "./rspack": {
       "require": {
-        "types": "./dist/esm/cjs/rspack.d.cts",
-        "default": "./dist/esm/cjs/rspack.cjs"
+        "types": "./dist/cjs/rspack.d.cts",
+        "default": "./dist/cjs/rspack.cjs"
       },
       "import": {
         "types": "./dist/esm/rspack.d.ts",
@@ -51,8 +51,8 @@
     },
     "./vite": {
       "require": {
-        "types": "./dist/esm/cjs/vite.d.cts",
-        "default": "./dist/esm/cjs/vite.cjs"
+        "types": "./dist/cjs/vite.d.cts",
+        "default": "./dist/cjs/vite.cjs"
       },
       "import": {
         "types": "./dist/esm/vite.d.ts",
@@ -61,8 +61,8 @@
     },
     "./webpack": {
       "require": {
-        "types": "./dist/esm/cjs/webpack.d.cts",
-        "default": "./dist/esm/cjs/webpack.cjs"
+        "types": "./dist/cjs/webpack.d.cts",
+        "default": "./dist/cjs/webpack.cjs"
       },
       "import": {
         "types": "./dist/esm/webpack.d.ts",
@@ -71,8 +71,8 @@
     },
     "./rollup": {
       "require": {
-        "types": "./dist/esm/cjs/rollup.d.cts",
-        "default": "./dist/esm/cjs/rollup.cjs"
+        "types": "./dist/cjs/rollup.d.cts",
+        "default": "./dist/cjs/rollup.cjs"
       },
       "import": {
         "types": "./dist/esm/rollup.d.ts",
@@ -81,8 +81,8 @@
     },
     "./esbuild": {
       "require": {
-        "types": "./dist/esm/cjs/esbuild.d.cts",
-        "default": "./dist/esm/cjs/esbuild.cjs"
+        "types": "./dist/cjs/esbuild.d.cts",
+        "default": "./dist/cjs/esbuild.cjs"
       },
       "import": {
         "types": "./dist/esm/esbuild.d.ts",
@@ -91,8 +91,8 @@
     },
     "./nuxt": {
       "require": {
-        "types": "./dist/esm/cjs/nuxt.d.cts",
-        "default": "./dist/esm/cjs/nuxt.cjs"
+        "types": "./dist/cjs/nuxt.d.cts",
+        "default": "./dist/cjs/nuxt.cjs"
       },
       "import": {
         "types": "./dist/esm/nuxt.d.ts",
@@ -101,8 +101,8 @@
     },
     "./farm": {
       "require": {
-        "types": "./dist/esm/cjs/farm.d.cts",
-        "default": "./dist/esm/cjs/farm.cjs"
+        "types": "./dist/cjs/farm.d.cts",
+        "default": "./dist/cjs/farm.cjs"
       },
       "import": {
         "types": "./dist/esm/farm.d.ts",
@@ -111,8 +111,8 @@
     },
     "./types": {
       "require": {
-        "types": "./dist/esm/cjs/core/types.d.cts",
-        "default": "./dist/esm/cjs/core/types.cjs"
+        "types": "./dist/cjs/core/types.d.cts",
+        "default": "./dist/cjs/core/types.cjs"
       },
       "import": {
         "types": "./dist/esm/core/types.d.ts",
@@ -121,8 +121,8 @@
     },
     "./typedefs": {
       "require": {
-        "types": "./dist/esm/cjs/core/typedefs.d.cts",
-        "default": "./dist/esm/cjs/core/typedefs.cjs"
+        "types": "./dist/cjs/core/typedefs.d.cts",
+        "default": "./dist/cjs/core/typedefs.cjs"
       },
       "import": {
         "types": "./dist/esm/core/typedefs.d.ts",
