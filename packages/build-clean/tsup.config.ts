@@ -1,35 +1,28 @@
-import { defineConfig } from 'tsup';
+import { defineConfig, type Options } from 'tsup';
+
+const commonOptions = (config: Options) => ({
+  bundle: true,
+  clean: true,
+  dts: true,
+  entry: ['src/**/*.ts'],
+  keepNames: true,
+  minify: config.watch ? false : 'terser',
+  removeNodeProtocol: false,
+  sourcemap: true,
+  splitting: true,
+  target: 'node22',
+  treeshake: true,
+  tsconfig: 'tsconfig.json',
+} satisfies Options);
 
 export default defineConfig((config) => [
   {
-    entry: ['src/**/*.ts'],
-    splitting: true,
-    sourcemap: true,
-    treeshake: true,
-    dts: true,
-    clean: true,
-    minify: config.watch ? false : 'terser',
-    keepNames: true,
-    bundle: true,
-    removeNodeProtocol: false,
-    tsconfig: 'tsconfig.json',
-    target: 'node22',
+    ...commonOptions(config),
     format: 'esm',
     outDir: 'dist/esm',
   },
   {
-    entry: ['src/**/*.ts'],
-    splitting: true,
-    sourcemap: true,
-    treeshake: true,
-    dts: true,
-    clean: true,
-    minify: config.watch ? false : 'terser',
-    keepNames: true,
-    bundle: true,
-    removeNodeProtocol: false,
-    tsconfig: 'tsconfig.json',
-    target: 'node22',
+    ...commonOptions(config),
     format: 'cjs',
     outDir: 'dist/cjs',
   },
