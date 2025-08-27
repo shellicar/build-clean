@@ -1,5 +1,5 @@
 import cleanPlugin from '@shellicar/build-clean/esbuild';
-import { type Options, defineConfig } from 'tsup';
+import { defineConfig, type Options } from 'tsup';
 
 const commonOptions = {
   entry: ['src/main.ts', 'src/index.ts'],

@@ -18,9 +18,9 @@
     "verify-version": "./scripts/verify-version.sh"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.2",
+    "@biomejs/biome": "2.2.2",
     "lefthook": "^1.12.3",
-    "npm-check-updates": "^18.0.2",
+    "npm-check-updates": "^18.0.3",
     "syncpack": "^13.0.4",
     "turbo": "^2.5.6"
   }

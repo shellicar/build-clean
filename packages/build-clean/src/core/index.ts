@@ -1,4 +1,4 @@
-import { type UnpluginFactory, type UnpluginOptions, createUnplugin } from 'unplugin';
+import { createUnplugin, type UnpluginFactory, type UnpluginOptions } from 'unplugin';
 import { cleanUnusedFiles } from './cleanUnusedFiles';
 import { createLogger } from './createLogger';
 import { defaults } from './defaults';

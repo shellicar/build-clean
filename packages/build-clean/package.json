@@ -6,7 +6,14 @@
   "license": "MIT",
   "author": "Stephen Hellicar",
   "description": "Build plugin that automatically cleans unused files from output directories.",
-  "keywords": ["esbuild", "tsup", "build", "clean", "plugin", "unplugin"],
+  "keywords": [
+    "esbuild",
+    "tsup",
+    "build",
+    "clean",
+    "plugin",
+    "unplugin"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shellicar/build-clean.git"
@@ -125,19 +132,42 @@
   "types": "dist/esm/index.d.ts",
   "typesVersions": {
     "*": {
-      "index": ["./dist/esm/index.d.ts"],
-      "astro": ["./dist/esm/astro.d.ts"],
-      "esbuild": ["./dist/esm/esbuild.d.ts"],
-      "farm": ["./dist/esm/farm.d.ts"],
-      "nuxt": ["./dist/esm/nuxt.d.ts"],
-      "rollup": ["./dist/esm/rollup.d.ts"],
-      "rspack": ["./dist/esm/rspack.d.ts"],
-      "types": ["./dist/esm/types.d.ts"],
-      "vite": ["./dist/esm/vite.d.ts"],
-      "webpack": ["./dist/esm/webpack.d.ts"]
+      "index": [
+        "./dist/esm/index.d.ts"
+      ],
+      "astro": [
+        "./dist/esm/astro.d.ts"
+      ],
+      "esbuild": [
+        "./dist/esm/esbuild.d.ts"
+      ],
+      "farm": [
+        "./dist/esm/farm.d.ts"
+      ],
+      "nuxt": [
+        "./dist/esm/nuxt.d.ts"
+      ],
+      "rollup": [
+        "./dist/esm/rollup.d.ts"
+      ],
+      "rspack": [
+        "./dist/esm/rspack.d.ts"
+      ],
+      "types": [
+        "./dist/esm/types.d.ts"
+      ],
+      "vite": [
+        "./dist/esm/vite.d.ts"
+      ],
+      "webpack": [
+        "./dist/esm/webpack.d.ts"
+      ]
     }
   },
-  "files": ["dist", "*.md"],
+  "files": [
+    "dist",
+    "*.md"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
