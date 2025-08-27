@@ -1,26 +1,60 @@
 # @shellicar/build-clean
 
-> TODO: description
-
 [![npm package](https://img.shields.io/npm/v/@shellicar/build-clean.svg)](https://npmjs.com/package/@shellicar/build-clean)
 [![build status](https://github.com/shellicar/build-clean/actions/workflows/node.js.yml/badge.svg)](https://github.com/shellicar/build-clean/actions/workflows/node.js.yml)
 
-## Features
+Build plugin that automatically cleans unused files from output directories.
 
-- 🎯 ...
+- 🧹 **Cleans after build** - Removes unused files without deleting the entire output directory
+- 🛡️ **Safe by default** - Dry-run mode, requires explicit destructive flag  
+- 🔧 **Watch mode friendly** - No period with empty output directory
 
 ## Installation & Quick Start
 
 ```sh
-npm i --save @shellicar/build-clean
+npm i --save-dev @shellicar/build-clean
 ```
 
 ```sh
-pnpm add @shellicar/build-clean
+pnpm add -D @shellicar/build-clean
 ```
 
+### esbuild
+
 ```ts
-// TODO: example
+import cleanPlugin from '@shellicar/build-clean/esbuild'
+import { build } from 'esbuild'
+
+await build({
+  entryPoints: ['src/main.ts'],
+  outdir: 'dist',
+  plugins: [
+    cleanPlugin({
+      // Required to actually delete files
+      destructive: true
+    })
+  ]
+})
+```
+
+### tsup
+
+```ts
+// tsup.config.ts
+import cleanPlugin from '@shellicar/build-clean/esbuild'
+import { defineConfig } from 'tsup'
+
+export default defineConfig({
+  entry: ['src/index.ts'],
+  // Important: disable tsup's clean
+  clean: false,
+  esbuildPlugins: [
+    cleanPlugin({
+      destructive: true,
+      verbose: true
+    })
+  ]
+})
 ```
 
 <!-- BEGIN_ECOSYSTEM -->
@@ -56,17 +90,43 @@ pnpm add @shellicar/build-clean
 
 ## Motivation
 
-> TODO: motivation
+Existing solutions like tsup's `clean: true` delete the entire output directory, which causes issues:
 
-## Usage
+- **Watch mode problems** - Other projects depending on these files can break when the directory is temporarily empty
+- **Debugger performance** - Extra JavaScript files slow down Node.js debuggers when mapping to TypeScript sources, sometimes causing crashes
 
-> TODO: usage
+This plugin cleans after the build completes, removing only unused files while keeping the directory intact.
+
+## Options
 
 ```ts
+interface Options {
+  /** Show detailed debug information */
+  debug?: boolean
+  
+  /** Show verbose file-by-file processing */
+  verbose?: boolean
+  
+  /** Actually delete files (default: false for safety) */
+  destructive?: boolean
+}
+```
+
+## Other Build Tools
+
+The plugin supports other tools via [unplugin](https://github.com/unjs/unplugin):
+
+```ts
+// vite.config.ts
+import cleanPlugin from '@shellicar/build-clean/vite'
+
+export default defineConfig({
+  plugins: [cleanPlugin({ destructive: true })]
+})
 ```
 
 ## Credits & Inspiration
 
-- TODO: tsup
-- TODO: esbuild
-- TODO: esbuild-clean-plugin
+- [tsup](https://github.com/egoist/tsup)
+- [esbuild](https://github.com/evanw/esbuild)
+- [esbuild-clean-plugin](https://github.com/LinbuduLab/esbuild-plugins/tree/main/packages/esbuild-plugin-clean)
