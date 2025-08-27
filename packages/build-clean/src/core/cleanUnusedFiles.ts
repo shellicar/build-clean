@@ -15,7 +15,7 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     logger.debug(`Existing files count: ${existingFiles.length}`);
 
     if (existingFiles.length === 0 && builtFiles.size > 0) {
-      logger.error('Disable tsup "clean: true" to use this plugin.');
+      logger.error('Disable tsup "clean: true" to use this plugin. (You can ignore this message if this is the first time you have built your package)');
       return;
     }
 
@@ -59,6 +59,8 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     } else if (!options.destructive) {
       logger.info(`Set destructive: true to actually delete the ${deletedCount} unused file(s)`);
     }
+
+    // TODO: Remove empty directories after deleting files
   } catch (error) {
     logger.error('Error during cleanup:', error);
     throw error;
