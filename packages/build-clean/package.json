@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Stephen Hellicar",
   "description": "Build plugin that automatically cleans unused files from output directories.",
-  "keywords": ["esbuild", "build", "clean", "plugin"],
+  "keywords": ["esbuild", "tsup", "build", "clean", "plugin", "unplugin"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shellicar/build-clean.git"
