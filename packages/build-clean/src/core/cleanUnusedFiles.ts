@@ -1,5 +1,5 @@
-import { unlink } from 'node:fs/promises';
 import { relative } from 'node:path';
+import { deleteFile } from './deleteFile';
 import { getAllFiles } from './getAllFiles';
 import type { ILogger, Options } from './types';
 import { validateOutDir } from './validateOutDir';
@@ -46,11 +46,11 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     for (const file of filesToDelete) {
       const relativePath = relative(process.cwd(), file);
 
+      logger.info(`Deleting: "${relativePath}"`);
       if (options.destructive) {
-        await unlink(file);
+        await deleteFile(file, logger);
       }
 
-      logger.info(`Deleting: "${relativePath}"`);
       deletedCount++;
     }
 
