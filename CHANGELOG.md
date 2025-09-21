@@ -10,4 +10,5 @@
 
 Initial release.
 
+[1.1.0]: https://github.com/shellicar/build-clean/releases/tag/1.1.0
 [1.0.0]: https://github.com/shellicar/build-clean/releases/tag/1.0.0
