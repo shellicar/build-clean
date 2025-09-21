@@ -45,12 +45,12 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     let deletedCount = 0;
     for (const file of filesToDelete) {
       const relativePath = relative(process.cwd(), file);
-
+      
+      logger.info(`Deleting: "${relativePath}"`);
       if (options.destructive) {
         await deleteFile(file, logger);
       }
 
-      logger.info(`Deleting: "${relativePath}"`);
       deletedCount++;
     }
 
