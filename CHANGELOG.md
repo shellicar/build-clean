@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0] - 2025-09-22
+
+### Changed
+
+- Prevent errors when deleting files from aborting the build process.
+
 ## [1.0.0] - 2025-08-27
 
 Initial release.
