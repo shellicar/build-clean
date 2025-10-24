@@ -12,9 +12,9 @@
   "devDependencies": {
     "@shellicar/build-clean": "workspace:^",
     "@tsconfig/node22": "^22.0.2",
-    "@types/node": "^24.3.0",
-    "esbuild": "^0.25.9",
-    "tsx": "^4.20.4",
-    "typescript": "^5.9.2"
+    "@types/node": "^24.9.1",
+    "esbuild": "^0.25.11",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }
