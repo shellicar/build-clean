@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.2] - 2025-10-24
+
+### Fixed
+
+- Fix audit vulnerabilities
+
 ## [1.1.1] - 2025-10-24
 
 ### Changed
@@ -16,6 +22,7 @@
 
 Initial release.
 
+[1.1.2]: https://github.com/shellicar/build-clean/releases/tag/1.1.2
 [1.1.1]: https://github.com/shellicar/build-clean/releases/tag/1.1.1
 [1.1.0]: https://github.com/shellicar/build-clean/releases/tag/1.1.0
 [1.0.0]: https://github.com/shellicar/build-clean/releases/tag/1.0.0
