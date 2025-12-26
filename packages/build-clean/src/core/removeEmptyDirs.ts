@@ -1,0 +1,36 @@
+import { readdir, rmdir } from 'node:fs/promises';
+import { join } from 'node:path';
+import type { ILogger, Options } from './types';
+
+export const removeEmptyDirs = async (dir: string, options: Options, logger: ILogger): Promise<boolean> => {
+  const entries = await getEntries(dir, logger);
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      await removeEmptyDirs(join(dir, entry.name), options, logger);
+    }
+  }
+
+  const remaining = await readdir(dir, {
+    withFileTypes: true,
+  });
+  if (remaining.length > 0) {
+    return false;
+  }
+
+  logger.info(`Removing empty directory: "${dir}"`);
+  if (options.destructive) {
+    await rmdir(dir, {
+      recursive: false,
+    });
+  }
+  return true;
+};
+
+const getEntries = async (dir: string, logger: ILogger) => {
+  try {
+    return await readdir(dir, { withFileTypes: true });
+  } catch (error) {
+    logger.error('Error reading directory:', error);
+    return [];
+  }
+};

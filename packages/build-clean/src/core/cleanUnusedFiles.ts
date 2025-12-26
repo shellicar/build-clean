@@ -1,6 +1,7 @@
 import { relative } from 'node:path';
 import { deleteFile } from './deleteFile';
 import { getAllFiles } from './getAllFiles';
+import { removeEmptyDirs } from './removeEmptyDirs';
 import type { ILogger, Options } from './types';
 import { validateOutDir } from './validateOutDir';
 
@@ -60,7 +61,9 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
       logger.info(`Set destructive: true to actually delete the ${deletedCount} unused file(s)`);
     }
 
-    // TODO: Remove empty directories after deleting files
+    if (options.destructive) {
+      await removeEmptyDirs(outDir, options, logger);
+    }
   } catch (error) {
     logger.error('Error during cleanup:', error);
     throw error;
