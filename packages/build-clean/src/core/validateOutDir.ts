@@ -1,5 +1,5 @@
 import { relative, resolve } from 'node:path';
-import type { ILogger } from './types';
+import type { ILogger } from '../types';
 
 export const validateOutDir = (outDir: string, logger: ILogger) => {
   const cwd = process.cwd();

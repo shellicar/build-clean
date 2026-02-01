@@ -1,13 +1,15 @@
 import type { Dirent } from 'node:fs';
 import { readdir, rmdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ILogger, Options } from './types';
+import type { ILogger } from '../types';
+import type { ResolvedOptions } from './types';
 
-export const removeEmptyDirs = async (dir: string, options: Options, logger: ILogger): Promise<boolean> => {
+export const removeEmptyDirs = async (dir: string, options: ResolvedOptions): Promise<boolean> => {
+  const { logger } = options;
   const entries = await getEntries(dir, logger);
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      await removeEmptyDirs(join(dir, entry.name), options, logger);
+      await removeEmptyDirs(join(dir, entry.name), options);
     }
   }
 

@@ -1,16 +1,11 @@
-import { createUnplugin, type UnpluginFactory, type UnpluginOptions } from 'unplugin';
+import type { UnpluginFactory, UnpluginOptions } from 'unplugin';
+import type { Options } from '../types';
 import { cleanUnusedFiles } from './cleanUnusedFiles';
-import { createLogger } from './createLogger';
-import { defaults } from './defaults';
-import type { Options } from './types';
+import { resolveOptions } from './resolveOptions';
 
-const pluginFactory: UnpluginFactory<Options | undefined> = (initialOptions: Options = {}) => {
-  const options = {
-    ...defaults,
-    ...initialOptions,
-  };
-
-  const logger = createLogger(options);
+export const pluginFactory: UnpluginFactory<Options | undefined> = (initialOptions: Options = {}) => {
+  const options = resolveOptions(initialOptions);
+  const { logger } = options;
 
   return {
     name: '@shellicar/build-clean',
@@ -34,11 +29,9 @@ const pluginFactory: UnpluginFactory<Options | undefined> = (initialOptions: Opt
           const builtFiles = new Set(Object.keys(result.metafile.outputs));
           logger.debug(`Found ${builtFiles.size} built files in metafile for directory: "${outdir}"`);
 
-          await cleanUnusedFiles(outdir, builtFiles, options, logger);
+          await cleanUnusedFiles(outdir, builtFiles, options);
         });
       },
     },
   } satisfies UnpluginOptions;
 };
-
-export const plugin = createUnplugin(pluginFactory);

@@ -1,4 +1,11 @@
-import type { ILogger, Options } from './types';
+import { inspect } from 'node:util';
+import type { ILogger } from '../types';
+
+export interface LoggerOptions {
+  prefix: string;
+  debug?: boolean;
+  verbose?: boolean;
+}
 
 const colors = {
   reset: '\x1b[0m',
@@ -9,28 +16,25 @@ const colors = {
   green: '\x1b[32m',
 };
 
-export function createLogger(options: Options): ILogger {
-  const prefix = '[build-cleaner]';
+type LogLevel = 'debug' | 'info' | 'warn' | 'error';
+
+const format = (value: unknown): unknown => (typeof value === 'object' ? inspect(value, { depth: null, colors: true }) : value);
+
+export function createLogger(options: LoggerOptions): ILogger {
+  const prefix = `[${options.prefix}]`;
+
+  const createLogMethod = (level: LogLevel, color: string, abbrev: string, enabled = true) =>
+    enabled
+      ? (message: string, ...args: unknown[]) => {
+          console[level](`${color}${prefix} ${abbrev}${colors.reset}`, format(message), ...args);
+        }
+      : () => {};
 
   return {
-    debug: (message: string, ...args: any[]) => {
-      if (options.debug) {
-        console.log(`${colors.gray}${prefix} DEBG${colors.reset} ${message}`, ...args);
-      }
-    },
-    verbose: (message: string, ...args: any[]) => {
-      if (options.verbose) {
-        console.log(`${colors.blue}${prefix} VERB${colors.reset} ${message}`, ...args);
-      }
-    },
-    info: (message: string, ...args: any[]) => {
-      console.log(`${colors.green}${prefix} INFO${colors.reset} ${message}`, ...args);
-    },
-    warn: (message: string, ...args: any[]) => {
-      console.warn(`${colors.yellow}${prefix} WARN${colors.reset} ${message}`, ...args);
-    },
-    error: (message: string, ...args: any[]) => {
-      console.error(`${colors.red}${prefix} EROR${colors.reset} ${message}`, ...args);
-    },
+    verbose: createLogMethod('debug', colors.blue, 'VERB', options.verbose),
+    debug: createLogMethod('debug', colors.gray, 'DEBG', options.debug),
+    info: createLogMethod('info', colors.green, 'INFO'),
+    warn: createLogMethod('warn', colors.yellow, 'WARN'),
+    error: createLogMethod('error', colors.red, 'EROR'),
   };
 }

@@ -1,6 +1,6 @@
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ILogger } from './types';
+import type { ILogger } from '../types';
 
 export async function getAllFiles(dir: string, logger: ILogger): Promise<string[]> {
   const files: string[] = [];

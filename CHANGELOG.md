@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0] - 2026-02-02
+
+### Added
+
+- Added `features` option to enable/disable specific plugin features
+- Added empty directory removal feature (enabled by default)
+- Added custom logger support via `logger` option
+
 ## [1.1.3] - 2026-02-02
 
 ### Fixed
@@ -28,6 +36,7 @@
 
 Initial release.
 
+[1.2.0]: https://github.com/shellicar/build-clean/releases/tag/1.2.0
 [1.1.3]: https://github.com/shellicar/build-clean/releases/tag/1.1.3
 [1.1.2]: https://github.com/shellicar/build-clean/releases/tag/1.1.2
 [1.1.1]: https://github.com/shellicar/build-clean/releases/tag/1.1.1
