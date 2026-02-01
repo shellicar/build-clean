@@ -1,13 +1,12 @@
-export interface Options {
-  debug?: boolean;
-  verbose?: boolean;
-  destructive?: boolean;
-}
+import type { Feature } from '../enums';
+import type { Options } from '../types';
 
-export type ILogger = {
-  debug: (typeof console)['debug'];
-  verbose: (typeof console)['debug'];
-  info: (typeof console)['info'];
-  warn: (typeof console)['warn'];
-  error: (typeof console)['error'];
+type FullFeatures = Record<Feature, boolean>;
+
+type RequiredOptions = 'debug' | 'verbose' | 'destructive' | 'features' | 'logger';
+
+type MakeRequired<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+
+export type ResolvedOptions = MakeRequired<Options, RequiredOptions> & {
+  features: FullFeatures;
 };

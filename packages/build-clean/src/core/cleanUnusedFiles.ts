@@ -1,10 +1,13 @@
 import { relative } from 'node:path';
+import { Feature } from '../enums';
 import { deleteFile } from './deleteFile';
 import { getAllFiles } from './getAllFiles';
-import type { ILogger, Options } from './types';
+import { removeEmptyDirs } from './removeEmptyDirs';
+import type { ResolvedOptions } from './types';
 import { validateOutDir } from './validateOutDir';
 
-export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, options: Options, logger: ILogger): Promise<void> {
+export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, options: ResolvedOptions): Promise<void> {
+  const { logger } = options;
   validateOutDir(outDir, logger);
 
   try {
@@ -15,7 +18,7 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
     logger.debug(`Existing files count: ${existingFiles.length}`);
 
     if (existingFiles.length === 0 && builtFiles.size > 0) {
-      logger.error('Disable tsup "clean: true" to use this plugin. (You can ignore this message if this is the first time you have built your package)');
+      logger.warn('Disable tsup "clean: true" to use this plugin. (You can ignore this message if this is the first time you have built your package)');
       return;
     }
 
@@ -60,7 +63,9 @@ export async function cleanUnusedFiles(outDir: string, builtFiles: Set<string>, 
       logger.info(`Set destructive: true to actually delete the ${deletedCount} unused file(s)`);
     }
 
-    // TODO: Remove empty directories after deleting files
+    if (options.features[Feature.RemoveEmptyDirs]) {
+      await removeEmptyDirs(outDir, options);
+    }
   } catch (error) {
     logger.error('Error during cleanup:', error);
     throw error;
