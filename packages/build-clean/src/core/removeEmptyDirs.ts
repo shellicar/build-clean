@@ -1,3 +1,4 @@
+import type { Dirent } from 'node:fs';
 import { readdir, rmdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { ILogger, Options } from './types';
@@ -10,23 +11,19 @@ export const removeEmptyDirs = async (dir: string, options: Options, logger: ILo
     }
   }
 
-  const remaining = await readdir(dir, {
-    withFileTypes: true,
-  });
+  const remaining = await readdir(dir);
   if (remaining.length > 0) {
     return false;
   }
 
   logger.info(`Removing empty directory: "${dir}"`);
   if (options.destructive) {
-    await rmdir(dir, {
-      recursive: false,
-    });
+    await rmdir(dir);
   }
   return true;
 };
 
-const getEntries = async (dir: string, logger: ILogger) => {
+const getEntries = async (dir: string, logger: ILogger): Promise<Dirent<string>[]> => {
   try {
     return await readdir(dir, { withFileTypes: true });
   } catch (error) {
