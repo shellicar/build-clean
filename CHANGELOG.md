@@ -4,7 +4,7 @@
 
 ### Security
 
-- Fixed CVE-2026-25547 in @isaacs/brace-expansion
+- Fixed [CVE-2026-25547](https://github.com/advisories/GHSA-7h2j-956f-4vf2) in @isaacs/brace-expansion
 
 ## [1.2.0] - 2026-02-02
 
