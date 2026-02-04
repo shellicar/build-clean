@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1] - 2026-02-04
+
+### Security
+
+- Fixed CVE-2026-25547 in @isaacs/brace-expansion
+
 ## [1.2.0] - 2026-02-02
 
 ### Added
@@ -36,6 +42,7 @@
 
 Initial release.
 
+[1.2.1]: https://github.com/shellicar/build-clean/releases/tag/1.2.1
 [1.2.0]: https://github.com/shellicar/build-clean/releases/tag/1.2.0
 [1.1.3]: https://github.com/shellicar/build-clean/releases/tag/1.1.3
 [1.1.2]: https://github.com/shellicar/build-clean/releases/tag/1.1.2
