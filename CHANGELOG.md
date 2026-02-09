@@ -1,10 +1,17 @@
 # Changelog
 
+## [1.2.2] - 2026-02-09
+
+### Security
+
+- Fixed [CVE-2025-68458](https://github.com/advisories/GHSA-8fgc-7cc6-rx7x) in webpack
+- Fixed [CVE-2025-68157](https://github.com/advisories/GHSA-38r7-794h-5758) in webpack
+
 ## [1.2.1] - 2026-02-04
 
 ### Security
 
-- Fixed CVE-2026-25547 in @isaacs/brace-expansion
+- Fixed [CVE-2026-25547](https://github.com/advisories/GHSA-7h2j-956f-4vf2) in @isaacs/brace-expansion
 
 ## [1.2.0] - 2026-02-02
 
@@ -42,6 +49,7 @@
 
 Initial release.
 
+[1.2.2]: https://github.com/shellicar/build-clean/releases/tag/1.2.2
 [1.2.1]: https://github.com/shellicar/build-clean/releases/tag/1.2.1
 [1.2.0]: https://github.com/shellicar/build-clean/releases/tag/1.2.0
 [1.1.3]: https://github.com/shellicar/build-clean/releases/tag/1.1.3
