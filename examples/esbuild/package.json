@@ -12,8 +12,8 @@
   "devDependencies": {
     "@shellicar/build-clean": "workspace:^",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^25.2.0",
-    "esbuild": "^0.27.2",
+    "@types/node": "^25.2.2",
+    "esbuild": "^0.27.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
