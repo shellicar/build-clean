@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3] - 2026-02-28
+
+### Security
+
+- Fixed [CVE-2026-27959](https://github.com/advisories/GHSA-7gcc-r8m5-44qm) in koa
+- Fixed [GHSA-3ppc-4f35-3m26](https://github.com/advisories/GHSA-3ppc-4f35-3m26) in minimatch
+
 ## [1.2.2] - 2026-02-09
 
 ### Security
@@ -49,6 +56,7 @@
 
 Initial release.
 
+[1.2.3]: https://github.com/shellicar/build-clean/releases/tag/1.2.3
 [1.2.2]: https://github.com/shellicar/build-clean/releases/tag/1.2.2
 [1.2.1]: https://github.com/shellicar/build-clean/releases/tag/1.2.1
 [1.2.0]: https://github.com/shellicar/build-clean/releases/tag/1.2.0
