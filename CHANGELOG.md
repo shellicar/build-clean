@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.4] - 2026-03-01
+
+### Security
+
+- Fixed [GHSA-5c6j-r48x-rmvq](https://github.com/advisories/GHSA-5c6j-r48x-rmvq) in serialize-javascript
+
+### Changed
+
+- Updated all dependencies to latest versions
+
 ## [1.2.3] - 2026-02-28
 
 ### Security
@@ -56,6 +66,7 @@
 
 Initial release.
 
+[1.2.4]: https://github.com/shellicar/build-clean/releases/tag/1.2.4
 [1.2.3]: https://github.com/shellicar/build-clean/releases/tag/1.2.3
 [1.2.2]: https://github.com/shellicar/build-clean/releases/tag/1.2.2
 [1.2.1]: https://github.com/shellicar/build-clean/releases/tag/1.2.1
