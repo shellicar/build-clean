@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.0] - 2026-03-11
+
+### Added
+
+- Added rolldown plugin export (`@shellicar/build-clean/rolldown`)
+
+### Changed
+
+- Updated all dependencies to latest versions
+
 ## [1.2.4] - 2026-03-01
 
 ### Security
@@ -66,6 +76,7 @@
 
 Initial release.
 
+[1.3.0]: https://github.com/shellicar/build-clean/releases/tag/1.3.0
 [1.2.4]: https://github.com/shellicar/build-clean/releases/tag/1.2.4
 [1.2.3]: https://github.com/shellicar/build-clean/releases/tag/1.2.3
 [1.2.2]: https://github.com/shellicar/build-clean/releases/tag/1.2.2
