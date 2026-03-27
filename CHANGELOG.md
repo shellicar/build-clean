@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.2] - 2026-03-28
+
+### Changed
+
+- Pin esbuild version to silence false Dependabot CVE alerts
+
 ## [1.3.1] - 2026-03-28
 
 ### Security
@@ -88,6 +94,7 @@
 
 Initial release.
 
+[1.3.2]: https://github.com/shellicar/build-clean/releases/tag/1.3.2
 [1.3.1]: https://github.com/shellicar/build-clean/releases/tag/1.3.1
 [1.3.0]: https://github.com/shellicar/build-clean/releases/tag/1.3.0
 [1.2.4]: https://github.com/shellicar/build-clean/releases/tag/1.2.4
