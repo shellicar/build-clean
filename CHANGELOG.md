@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.1] - 2026-03-28
+
+### Security
+
+- Fixed [CVE-2026-32887](https://github.com/advisories/GHSA-38f7-945m-qr2g) in effect
+- Fixed [CVE-2026-33671](https://github.com/advisories/GHSA-c2c7-rcm5-vvqj) in picomatch
+- Fixed [CVE-2026-33750](https://github.com/advisories/GHSA-f886-m6hf-6m8v) in brace-expansion
+
+### Changed
+
+- Updated all dependencies to latest versions
+
 ## [1.3.0] - 2026-03-11
 
 ### Added
@@ -76,6 +88,7 @@
 
 Initial release.
 
+[1.3.1]: https://github.com/shellicar/build-clean/releases/tag/1.3.1
 [1.3.0]: https://github.com/shellicar/build-clean/releases/tag/1.3.0
 [1.2.4]: https://github.com/shellicar/build-clean/releases/tag/1.2.4
 [1.2.3]: https://github.com/shellicar/build-clean/releases/tag/1.2.3
