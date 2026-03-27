@@ -191,7 +191,7 @@
     "@farmfe/core": ">=1",
     "@nuxt/kit": "^3",
     "@nuxt/schema": "^3",
-    "esbuild": "*",
+    "esbuild": "^0.27",
     "rolldown": ">=1.0.0-rc.1",
     "rollup": "^3",
     "vite": "^6",
@@ -226,6 +226,7 @@
   "devDependencies": {
     "@nuxt/kit": "^4.4.2",
     "@tsconfig/node22": "^22.0.5",
+    "esbuild": "^0.27.3",
     "@types/node": "^25.5.0",
     "terser": "^5.46.1",
     "tsup": "^8.5.1",
